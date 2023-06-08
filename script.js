@@ -58,14 +58,56 @@ const removePlayer = async (playerId) => {
  * It takes an array of player objects, loops through them, and creates a string of HTML for each
  * player, then adds that string to a larger string of HTML that represents all the players. 
  * 
- * Then it takes that larger string of HTML and adds it to the DOM. 
+ //Then it takes that larger string of HTML and adds it to the DOM. 
+ 
+ const partyDetailsElement = document.createElement('div');
+    partyDetailsElement.classList.add('party-details');
+    partyDetailsElement.innerHTML = `
+            <h2>${party.title}</h2>
+            <p>${party.event}</p>
+            <p>${party.city}</p>
+            <p>${party.state}</p>
+            <p>${party.country}</p>
+            <h3>Guests:</h3>
+            <ul>
+            ${guests
+              .map(
+                (guest, index) => `
+              <li>
+                <div>${guest.name}</div>
+                <div>${rsvps[index].status}</div>
+              </li>
+            `
+              )
+              .join('')}
+          </ul>
+          
+            <button class="close-button">Close</button>
+        `;
+    partyContainer.appendChild(partyDetailsElement);
+
+
  * 
  * It also adds event listeners to the buttons in each player card. 
- * 
+ *  const closeButton = partyDetailsElement.querySelector('.close-button');
+    closeButton.addEventListener('click', () => {
+      partyDetailsElement.remove();
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+ 
  * The event listeners are for the "See details" and "Remove from roster" buttons. 
+const detailsButton = partyElement.querySelector('.details-button');
+      detailsButton.addEventListener('click', async (event) => {
+        // your code here
+      });
  * 
  * The "See details" button calls the `fetchSinglePlayer` function, which makes a fetch request to the
  * API to get the details for a single player. 
+ *   
+
  * 
  * The "Remove from roster" button calls the `removePlayer` function, which makes a fetch request to
  * the API to remove a player from the roster. 
