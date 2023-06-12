@@ -1,0 +1,59 @@
+//Render New Player Form
+const renderNewPlayerForm = (){
+    newPlayerFormEl.innerHTML=`
+   
+
+
+Init
+const init = async () => {
+    const players = await fetchAllPlayers();
+    console.log(Players)
+    renderAllPlayers(players);
+    renderNewPlayerForm();
+}
+
+init();
+document.querySelector('form', async, (e)=>{
+    e.preventDefault();
+)};
+
+
+const template=playerlist.map(player=>{
+    <div class="card"
+    <h1>${player.name}
+   
+    );
+    playercontainer.innerHTML=template.join('')
+    
+    
+    
+    console.log(playerList);
+    playerContainer.innerHTML = '';
+    playerList.forEach(player => {
+  const playerCard = document.createElement('div');
+      playerCard.classList.add('card');
+      playerCard.innerHTML = `
+      <div class="card"
+                <h2>${player.name}</h2>
+                <button class="details-button" data-id="${player.id}">See Details</button>
+                <button class="delete-button" data-id="${player.id}">Delete</button>
+          </div>`;
+    });
+    playerContainer.appendChild(playerCard);
+
+
+
+
+    const API_URL = 'http://localhost:8080/api/demo/recipes';
+
+    // fetch recipes
+    const fetchAllRecipes = async () => {
+        try {
+            const response = await fetch(API_URL);
+            const recipes = await response.json();
+            console.log(recipes);
+            return recipes;
+        } catch (error) {
+            console.log(error);
+        }
+    }
