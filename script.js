@@ -92,22 +92,6 @@ playerContainer.appendChild(playerCard);
     
     playerContainer.innerHTML = template.join('')
 }
-const SeeDetails = playerDetailsElement.querySelector('.See-Details');
-try{
-    SeeDetails.addEventListener('click', () => {
-        playerDetailsElement.remove();
-});
-
-}   catch (error){
-    console.error(error);
-};                
-
-const renderNewPlayerForm = () => {
-    console.log(playerList)
-    newPlayerForm.innerHTML = '';
-    newPlayerForm.forEach(newPlayerForm => {
-    });
-};
  
 //Init Function
 const init = async () => {
